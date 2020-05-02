@@ -1,0 +1,35 @@
+version: '3.4'
+
+services:
+  nodered:
+    image: isif/nodered:version1
+    build:
+      network: host
+      context: .
+      dockerfile: NodeRED/Dockerfile
+    ports:
+      - "1880:1880"
+    tty: true
+   
+#  mongodb:
+ #   image: isif/mongodb:version1
+  #  restart: always
+   # build:
+    #  network: host
+     # context: .
+#      dockerfile: MongoDB/Dockerfile
+ #   ports:
+  #    - "27017:27017"
+   # tty: true
+
+  hpfeeds:
+    image: isif/hpfeeds:version1
+    build:
+      network: host
+      context: .
+      dockerfile: HPFeeds/Dockerfile
+#    ports:
+#      - "10000:10000"
+#    depends_on:
+ #     - mongodb
+    tty: true
