@@ -23,13 +23,14 @@ services:
    # tty: true
 
   hpfeeds:
-    image: isif/hpfeeds:version1
+    image: isif/hpfeeds_mongodb_1804:version1
     build:
       network: host
       context: .
       dockerfile: HPFeeds/Dockerfile
-#    ports:
-#      - "10000:10000"
+    ports:
+      - "10000:10000"
+      - "27017:27017"
 #    depends_on:
- #     - mongodb
+#      - mongodb
     tty: true
