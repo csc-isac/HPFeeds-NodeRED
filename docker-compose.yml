@@ -12,7 +12,7 @@ services:
     tty: true
    
 #  mongodb:
- #   image: isif/mongodb:version1
+ #   image: mongo/mongodb:latest
   #  restart: always
    # build:
     #  network: host
