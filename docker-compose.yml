@@ -11,26 +11,28 @@ services:
       - "1880:1880"
     tty: true
    
-#  mongodb:
- #   image: isif/mongodb:version1
-  #  restart: always
-   # build:
-    #  network: host
-     # context: .
-#      dockerfile: MongoDB/Dockerfile
- #   ports:
-  #    - "27017:27017"
-   # tty: true
+  mongodb:
+    image: mongo:latest
+    restart: always
+    build:
+      network: host
+      context: .
+      dockerfile: MongoDB/Dockerfile
+    ports:
+      - "27017-27019:27017-27019"
+    volumes:
+      - ~/mongo/data:/data/mongodb
+    tty: true
 
   hpfeeds:
-    image: isif/hpfeeds_mongodb_1804:version1
+    image: isif/hpfeeds:version1
     build:
       network: host
       context: .
       dockerfile: HPFeeds/Dockerfile
     ports:
       - "10000:10000"
-      - "27017:27017"
-#    depends_on:
-#      - mongodb
+#      - "27017:27017"
+    depends_on:
+      - mongodb
     tty: true
