@@ -2,13 +2,15 @@
 FROM isif/hpfeeds:version1 
 
 
-RUN echo '
+RUN echo ' \n\
 python /opt/hpfeeds/broker/add_user.py sensor-dionaea password1234 "mwbinary.dionaea.sensorunique,dionaea.capture,dionaea.capture.anon,dionaea.captures,dionaea.connections" " "\n\
->> add_user_Dionaea.sh'
+\n'\
+>> add_user_Dionaea.sh
 
-RUN echo '
+RUN echo ' \n\
 python /opt/hpfeeds/broker/add_user.py sensor-cowrie password1234 "cowrie.sessions,cowrie.session.connect,cowrie.login.success,cowrie.login.failed,cowrie.command.input,cowrie.command.failed,cowrie.session.file_download,cowrie.session.file_upload,cowrie.client.version,cowrie.log.closed,cowrie.session.closed" " "\n\
->> add_user_Cowrie.sh'
+\n'\
+>> add_user_Cowrie.sh
 
 
 #RUN apt update && apt-get install -y mongodb-clients
