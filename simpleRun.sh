@@ -2,6 +2,7 @@
 #&& apt-get upgrade -y
 #apt-get install docker.io docker-compose
 
+docker config create mongoconf MongoDB/mongod.conf.orig
 docker-compose up -d --build mongodb
 docker restart hpfeedsnodered_mongodb_1
 docker-compose up -d --build hpfeeds
